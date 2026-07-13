@@ -19,7 +19,14 @@ connectCloudinary()
 
 //Middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: [
+    'https://mern-store-app-kohl.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ],
+  credentials: true
+}))
 
 //API endpoints
 app.use('/api/user',userRouter)
